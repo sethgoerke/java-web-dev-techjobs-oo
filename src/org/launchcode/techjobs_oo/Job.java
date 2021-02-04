@@ -17,8 +17,9 @@ public class Job {
         id = nextId;
         nextId++;
     }
-    public Job(String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency){
+    public Job(int aId, String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency){
         this();
+        this.id = aId;
         this.name = aName;
         this.employer = aEmployer;
         this.location = aLocation;

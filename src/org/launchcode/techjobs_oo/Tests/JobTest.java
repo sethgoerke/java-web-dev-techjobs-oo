@@ -19,7 +19,7 @@ public class JobTest {
     public void createJobObject() {
         test_id1 = new Job();
         test_id2 = new Job();
-        test_id3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        test_id3 = new Job(1,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         System.out.println(test_id3);
     }
     //Test the Empty Constructor 1 - 5
@@ -43,11 +43,19 @@ public class JobTest {
 
     //Test the Full Constructor 1 - 3
 
-//    @Test
-//    public void testJobConstructorSetsAllFields(){
-//
-//    }
+    @Test
+    public void testJobConstructorSetsAllFields(){
+        assertEquals(1,test_id3.getId());
+        assertEquals("Product tester", test_id3.getName());
+        assertEquals("ACME", test_id3.getEmployer().getValue());
+        assertEquals("Desert",test_id3.getLocation().getValue());
+        assertEquals("Quality control", test_id3.getPositionType().getValue());
+        assertEquals("Persistence", test_id3.getCoreCompetency().getValue());
+    }
+    @Test
+    public void testJobsForEquality(){
 
+    }
 
 
 }
