@@ -12,9 +12,9 @@ public class PositionType {
         nextId++;
     }
 
-    public PositionType(String value) {
+    public PositionType(String aValue) {
         this();
-        this.value = value;
+        this.value = aValue;
     }
 
     @Override
