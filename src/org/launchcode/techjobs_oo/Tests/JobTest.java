@@ -15,12 +15,14 @@ public class JobTest {
     private Job test_id1;
     private Job test_id2;
     private Job test_id3;
+    private Job test_id4;
+
     @Before
     public void createJobObject() {
         test_id1 = new Job();
         test_id2 = new Job();
         test_id3 = new Job(1,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        System.out.println(test_id3);
+        test_id4 = new Job(2,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     }
     //Test the Empty Constructor 1 - 5
 
@@ -54,8 +56,20 @@ public class JobTest {
     }
     @Test
     public void testJobsForEquality(){
+    assertFalse(test_id3.equals(test_id4));
 
     }
-
+    @Test
+    public void testBlankLineBeforeAndAfter(){
+        assertEquals('\n', test_id3.toString().charAt(0));
+    }
+    @Test
+    public void testLabelDataEachField(){
+        assertEquals("\nID: 1" + "\nName: Product tester" + "\nEmployer: ACME" + "\nLocation: Desert" + "\nPosition Type: Quality control" + "\nCore Competency: Persistence", test_id3.toString());
+    }
+    @Test
+    public void testEmptyField(){
+        assertEquals("\nID: Data not available" + "\nName: Data not available" + "\nEmployer: Data not available" + "\nLocation: Data not available" + "\nPosition Type: Data not available" + "\nCore Competency: Data not available", test_id1.toString());
+    }
 
 }
