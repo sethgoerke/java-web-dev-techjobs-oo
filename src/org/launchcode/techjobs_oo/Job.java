@@ -43,17 +43,23 @@ public class Job {
         return Objects.hash(getId(), getName(), getEmployer(), getLocation(), getPositionType(), getCoreCompetency());
     }
 
-//    @Override
-//    public String toString() {
-//        return "Job{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", employer=" + employer +
-//                ", location=" + location +
-//                ", positionType=" + positionType +
-//                ", coreCompetency=" + coreCompetency +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        String id = "ID: " + getId() + "\n";
+        String name = "Name: " + ((getName().isBlank()) ? "Data not available" : getName()) + "\n";
+        String employer = "Employer: " + ((getEmployer().isBlank()) ? "Data not available" : getEmployer()) + "\n";
+        String location = "Location: " + ((getLocation().isBlank()) ? "Data not available" : getLocation()) + "\n";
+        String position = "Position Type: " + ((getPositionType().isBlank()) ? "Data not available" : getPositionType()) + "\n";
+        String coreComp = "Core Competency: " + ((getCoreCompetency().isBlank()) ? "Data not available" : getCoreCompetency());
+
+        return "\n" +
+                 id +
+                 name +
+                 employer +
+                 location +
+                 position +
+                 coreComp;
+    }
 
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.

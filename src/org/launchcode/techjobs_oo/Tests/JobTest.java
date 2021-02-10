@@ -16,20 +16,20 @@ public class JobTest {
     private Job test_id2;
     private Job test_id3;
     private Job test_id4;
-
+    private Job test_id5;
     @Before
     public void createJobObject() {
         test_id1 = new Job();
         test_id2 = new Job();
         test_id3 = new Job(1,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         test_id4 = new Job(2,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        test_id5 = new Job(3," ",new Employer("Data not available"), new Location("Data not available"), new PositionType("Data not available"), new CoreCompetency("Data not available"));
     }
     //Test the Empty Constructor 1 - 5
 
     @Test
-    public void testSettingJobId(){
-        assertEquals(1,test_id1.getId());
-    }
+    public void testSettingJobId(){ assertEquals(1,test_id3.getId());}
+
     @Test
     public void testObjectsPlusOneIsTrue(){
         assertTrue(test_id1.getId() + 1 == test_id2.getId());
@@ -64,12 +64,12 @@ public class JobTest {
         assertEquals('\n', test_id3.toString().charAt(0));
     }
     @Test
-    public void testLabelDataEachField(){
+    public void testLabelAndDataEachField(){
         assertEquals("\nID: 1" + "\nName: Product tester" + "\nEmployer: ACME" + "\nLocation: Desert" + "\nPosition Type: Quality control" + "\nCore Competency: Persistence", test_id3.toString());
     }
     @Test
     public void testEmptyField(){
-        assertEquals("\nID: Data not available" + "\nName: Data not available" + "\nEmployer: Data not available" + "\nLocation: Data not available" + "\nPosition Type: Data not available" + "\nCore Competency: Data not available", test_id1.toString());
+        assertEquals("\nID: 3" + "\nName: Data not available" + "\nEmployer: Data not available" + "\nLocation: Data not available" + "\nPosition Type: Data not available" + "\nCore Competency: Data not available", test_id5.toString());
     }
 
 }
