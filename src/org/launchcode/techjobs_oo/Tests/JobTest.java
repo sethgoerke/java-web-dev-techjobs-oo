@@ -64,7 +64,7 @@ public class JobTest {
     }
     @Test
     public void testLabelAndDataEachField(){
-        assertEquals("\nID: 1" + "\nName: Product tester" + "\nEmployer: ACME" + "\nLocation: Desert" + "\nPosition Type: Quality control" + "\nCore Competency: Persistence", test_id1.toString());
+        assertEquals("\nID: " + test_id1.getId()  + "\nName: Product tester" + "\nEmployer: ACME" + "\nLocation: Desert" + "\nPosition Type: Quality control" + "\nCore Competency: Persistence", test_id1.toString());
     }
     @Test
     public void testEmptyField(){
