@@ -12,23 +12,22 @@ import static org.junit.Assert.assertFalse;
 
 public class JobTest {
 
+
     private Job test_id1;
     private Job test_id2;
     private Job test_id3;
-    private Job test_id4;
-    private Job test_id5;
+
     @Before
     public void createJobObject() {
-        test_id1 = new Job();
-        test_id2 = new Job();
-        test_id3 = new Job(1,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        test_id4 = new Job(2,"Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        test_id5 = new Job(3," ",new Employer("Data not available"), new Location("Data not available"), new PositionType("Data not available"), new CoreCompetency("Data not available"));
+
+        test_id1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        test_id2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        test_id3 = new Job(" ",new Employer("Data not available"), new Location("Data not available"), new PositionType("Data not available"), new CoreCompetency("Data not available"));
     }
     //Test the Empty Constructor 1 - 5
 
     @Test
-    public void testSettingJobId(){ assertEquals(1,test_id3.getId());}
+    public void testSettingJobId(){ assertEquals(1, test_id2.getId() - test_id1.getId());}
 
     @Test
     public void testObjectsPlusOneIsTrue(){
@@ -47,29 +46,29 @@ public class JobTest {
 
     @Test
     public void testJobConstructorSetsAllFields(){
-        assertEquals(1,test_id3.getId());
-        assertEquals("Product tester", test_id3.getName());
-        assertEquals("ACME", test_id3.getEmployer().getValue());
-        assertEquals("Desert",test_id3.getLocation().getValue());
-        assertEquals("Quality control", test_id3.getPositionType().getValue());
-        assertEquals("Persistence", test_id3.getCoreCompetency().getValue());
+        assertEquals(1,test_id2.getId() - test_id1.getId());
+        assertEquals("Product tester", test_id1.getName());
+        assertEquals("ACME", test_id1.getEmployer().getValue());
+        assertEquals("Desert",test_id1.getLocation().getValue());
+        assertEquals("Quality control", test_id1.getPositionType().getValue());
+        assertEquals("Persistence", test_id1.getCoreCompetency().getValue());
     }
     @Test
     public void testJobsForEquality(){
-    assertFalse(test_id3.equals(test_id4));
+    assertFalse(test_id1.equals(test_id2));
 
     }
     @Test
     public void testBlankLineBeforeAndAfter(){
-        assertEquals('\n', test_id3.toString().charAt(0));
+        assertEquals('\n', test_id1.toString().charAt(0));
     }
     @Test
     public void testLabelAndDataEachField(){
-        assertEquals("\nID: 1" + "\nName: Product tester" + "\nEmployer: ACME" + "\nLocation: Desert" + "\nPosition Type: Quality control" + "\nCore Competency: Persistence", test_id3.toString());
+        assertEquals("\nID: 1" + "\nName: Product tester" + "\nEmployer: ACME" + "\nLocation: Desert" + "\nPosition Type: Quality control" + "\nCore Competency: Persistence", test_id1.toString());
     }
     @Test
     public void testEmptyField(){
-        assertEquals("\nID: 3" + "\nName: Data not available" + "\nEmployer: Data not available" + "\nLocation: Data not available" + "\nPosition Type: Data not available" + "\nCore Competency: Data not available", test_id5.toString());
+        assertEquals("\nID: 3" + "\nName: Data not available" + "\nEmployer: Data not available" + "\nLocation: Data not available" + "\nPosition Type: Data not available" + "\nCore Competency: Data not available", test_id3.toString());
     }
 
 }
